@@ -8,7 +8,7 @@ import java.util.List;
  * Created by scnyig on 6/2/2016.
  */
 public class LevenshteinDistance {
-    public static void main(String[] args) {
+    public static void main0(String[] args) {
         String a = "aaadddeee";
         String b = "efadfe";
         int length = computeLevenshteinDistance(a, b);

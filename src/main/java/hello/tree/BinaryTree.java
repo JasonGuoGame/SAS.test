@@ -4,9 +4,9 @@ import java.util.ArrayDeque;
 
 /**
  * Created by scnyig on 6/3/2016.
- * ArrayDeque²»ÊÇÏß³Ì°²È«µÄ¡£
- * ArrayDeque²»¿ÉÒÔ´æÈ¡nullÔªËØ£¬ÒòÎªÏµÍ³¸ù¾İÄ³¸öÎ»ÖÃÊÇ·ñÎªnullÀ´ÅĞ¶ÏÔªËØµÄ´æÔÚ¡£
- * µ±×÷ÎªÕ»Ê¹ÓÃÊ±£¬ĞÔÄÜ±ÈStackºÃ£»µ±×÷Îª¶ÓÁĞÊ¹ÓÃÊ±£¬ĞÔÄÜ±ÈLinkedListºÃ¡£
+ * ArrayDequeä¸æ˜¯çº¿ç¨‹å®‰å…¨çš„ã€‚
+ * ArrayDequeä¸å¯ä»¥å­˜å–nullå…ƒç´ ï¼Œå› ä¸ºç³»ç»Ÿæ ¹æ®æŸä¸ªä½ç½®æ˜¯å¦ä¸ºnullæ¥åˆ¤æ–­å…ƒç´ çš„å­˜åœ¨ã€‚
+ * å½“ä½œä¸ºæ ˆä½¿ç”¨æ—¶ï¼Œæ€§èƒ½æ¯”Stackå¥½ï¼›å½“ä½œä¸ºé˜Ÿåˆ—ä½¿ç”¨æ—¶ï¼Œæ€§èƒ½æ¯”LinkedListå¥½ã€‚
  */
 public class BinaryTree {
     static class TreeNode{
@@ -26,9 +26,9 @@ public class BinaryTree {
     }
 
     /**
-     * ²ÉÓÃµİ¹éµÄ·½Ê½´´½¨Ò»¿Å¶ş²æÊ÷
-     * ´«ÈëµÄÊÇ¶ş²æÊ÷µÄÊı×é±íÊ¾·¨
-     * ¹¹ÔìºóÊÇ¶ş²æÊ÷µÄ¶ş²æÁ´±í±íÊ¾·¨
+     * é‡‡ç”¨é€’å½’çš„æ–¹å¼åˆ›å»ºä¸€é¢—äºŒå‰æ ‘
+     * ä¼ å…¥çš„æ˜¯äºŒå‰æ ‘çš„æ•°ç»„è¡¨ç¤ºæ³•
+     * æ„é€ åæ˜¯äºŒå‰æ ‘çš„äºŒå‰é“¾è¡¨è¡¨ç¤ºæ³•
      */
     public static TreeNode makeBinaryTreeByArray(int[] array,int index){
         if(index<array.length){
@@ -45,9 +45,9 @@ public class BinaryTree {
     }
 
     /**
-     * Éî¶ÈÓÅÏÈ±éÀú£¬Ïàµ±ÓÚÏÈ¸ù±éÀú
-     * ²ÉÓÃ·Çµİ¹éÊµÏÖ
-     * ĞèÒª¸¨ÖúÊı¾İ½á¹¹£ºÕ»
+     * æ·±åº¦ä¼˜å…ˆéå†ï¼Œç›¸å½“äºå…ˆæ ¹éå†
+     * é‡‡ç”¨éé€’å½’å®ç°
+     * éœ€è¦è¾…åŠ©æ•°æ®ç»“æ„ï¼šæ ˆ
      */
     public void depthOrderTraversal(){
         if(root==null){
@@ -68,11 +68,10 @@ public class BinaryTree {
         }
         System.out.print("\n");
     }
-
     /**
-     * ¹ã¶ÈÓÅÏÈ±éÀú
-     * ²ÉÓÃ·Çµİ¹éÊµÏÖ
-     * ĞèÒª¸¨ÖúÊı¾İ½á¹¹£º¶ÓÁĞ
+     * å¹¿åº¦ä¼˜å…ˆéå†
+     * é‡‡ç”¨éé€’å½’å®ç°
+     * éœ€è¦è¾…åŠ©æ•°æ®ç»“æ„ï¼šé˜Ÿåˆ—
      */
     public void levelOrderTraversal(){
         if(root==null){
@@ -103,7 +102,7 @@ public class BinaryTree {
      *            /    /\   /
      *           22   4 28 32
      */
-    public static void main(String[] args) {
+    public static void main0(String[] args) {
         int[] arr={0,13,65,5,97,25,0,37,22,0,4,28,0,0,32,0};
         BinaryTree tree=new BinaryTree(arr);
         tree.depthOrderTraversal();

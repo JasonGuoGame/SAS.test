@@ -4,7 +4,7 @@ package hello.leetcode;
  * Created by scnyig on 5/26/2016.
  */
 public class TestArray {
-    public static void main(String[] args) {
+    public static void main0(String[] args) {
 //        int[] A = {1,2,2,3,2,4};
 //        int length = removeElement(A, 6, 2);
         int r = iExponentiatingN(2,3);

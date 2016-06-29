@@ -88,7 +88,7 @@ public class Safelock {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main0(String[] args) {
         final Friend alphonse =
                 new Friend("Alphonse");
         final Friend gaston =
