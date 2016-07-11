@@ -26,6 +26,27 @@ public class BinaryTree {
     }
 
     /**
+     *                  13
+     *                 /  \
+     *               65    5
+     *              /  \    \
+     *             97  25   37
+     *            /    /\   /
+     *           22   4 28 32
+     */
+    public static void main(String[] args) {
+        int[] arr={0,13,65,5,97,25,0,37,22,0,4,28,0,0,32,0};
+        BinaryTree tree=new BinaryTree(arr);
+        preOrder(tree.root);
+        System.out.println("================================");
+        inOrder(tree.root);
+        System.out.println("================================");
+        postOrder(tree.root);
+//        tree.depthOrderTraversal();
+//        tree.levelOrderTraversal();
+    }
+
+    /**
      * 采用递归的方式创建一颗二叉树
      * 传入的是二叉树的数组表示法
      * 构造后是二叉树的二叉链表表示法
@@ -93,19 +114,50 @@ public class BinaryTree {
         System.out.print("\n");
     }
 
-    /**
-     *                  13
-     *                 /  \
-     *               65    5
-     *              /  \    \
-     *             97  25   37
-     *            /    /\   /
-     *           22   4 28 32
+    /*
+    * 深度优先遍历分为，前序，中序，后续
+    * recursive
      */
-    public static void main0(String[] args) {
-        int[] arr={0,13,65,5,97,25,0,37,22,0,4,28,0,0,32,0};
-        BinaryTree tree=new BinaryTree(arr);
-        tree.depthOrderTraversal();
-        tree.levelOrderTraversal();
+    public static void preOrder(TreeNode root) {
+        if(root == null) {
+            System.out.println("empty");
+        }
+        System.out.println(root.value);
+        if (root.left != null)
+            preOrder(root.left);
+        if (root.right != null)
+            preOrder(root.right);
+    }
+
+    public static void inOrder(TreeNode root) {
+        if(root ==null) {
+            System.out.println("empty");
+        }
+
+        if(root.left != null) {
+
+            inOrder(root.left);
+        }
+        System.out.println(root.value);
+        if(root.right != null) {
+            inOrder(root.right);
+        }
+    }
+
+    public static void postOrder(TreeNode root) {
+        if(root ==null) {
+            System.out.println("empty");
+        }
+
+        if(root.left != null) {
+
+            inOrder(root.left);
+        }
+
+        if(root.right != null) {
+            inOrder(root.right);
+        }
+
+        System.out.println(root.value);
     }
 }
