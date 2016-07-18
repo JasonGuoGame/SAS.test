@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * Created by scnyig on 7/18/2016.
+ * http://www.cnblogs.com/-OYK/archive/2012/12/05/2803317.html
  */
 public class LRUCache {
     private Map<Integer, CacheNode> cache = new HashMap<>();
