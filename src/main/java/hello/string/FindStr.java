@@ -1,5 +1,8 @@
 package hello.string;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by scnyig on 7/11/2016.
  */
@@ -43,10 +46,11 @@ public class FindStr {
     }
 
     public static void main(String[] args) {
-        String a = "abcd";
+        String a = "abcabcbb";
         String b = "acbd";
-        boolean flag = anagram2(a,b);
-        System.out.println(flag);
+//        boolean flag = anagram2(a,b);
+        int maxL = lengthOfLongestSubstring(a);
+        System.out.println(maxL);
     }
 
     public static boolean anagram2(String s, String t) {
@@ -67,4 +71,64 @@ public class FindStr {
         return true;
     }
 
+    /**
+     * @param s A string
+     * @return the length of last word
+     */
+    public static int lengthOfLastWord(String s) {
+        if (s == null | s.isEmpty()) return 0;
+
+        // trim right space
+        int begin = 0, end = s.length();
+        while (end > 0 && s.charAt(end - 1) == ' ') {
+            end--;
+        }
+        // find the last space
+        for (int i = 0; i < end; i++) {
+            if (s.charAt(i) == ' ') {
+                begin = i + 1;
+            }
+        }
+
+        return end - begin;
+    }
+
+    /*
+    * return the longest substring without repeating characters
+     */
+    public static int lengthOfLongestSubstring(String s) {
+        if (s == null || s.isEmpty()) {
+            return 0;
+        }
+
+        int maxsofar = 0;
+        int from = 0;
+
+        Map<Character, Integer> idxMap = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            Character c = s.charAt(i);
+            if (idxMap.containsKey(c)) {
+                if (idxMap.size() > maxsofar) {
+                    maxsofar = idxMap.size();
+                }
+                int to = idxMap.get(c);
+                removeRange(idxMap, s, from, to);
+                from = to + 1;
+            }
+            idxMap.put(c, i);
+
+        }
+
+        if (idxMap.size() > maxsofar) {
+            maxsofar = idxMap.size();
+        }
+
+        return maxsofar;
+    }
+
+    private static void removeRange(Map<Character, Integer> idxMap, String s, int from, int to) {
+        for (int i = from; i <=to; i++) {
+            idxMap.remove(s.charAt(i));
+        }
+    }
 }
