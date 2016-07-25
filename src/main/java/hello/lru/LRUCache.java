@@ -8,7 +8,7 @@ import java.util.Map;
  * http://www.cnblogs.com/-OYK/archive/2012/12/05/2803317.html
  */
 public class LRUCache {
-    private Map<Integer, CacheNode> cache = new HashMap<>();
+    private Map<String, CacheNode> cache = new HashMap<>();
     private CacheNode head = null;
     private CacheNode tail = null;
     private int capacity;
@@ -18,10 +18,10 @@ public class LRUCache {
         this.capacity = capacity;
     }
 
-    public int get(int key) {
+    public String get(String key) {
         CacheNode result = cache.get(key);
         if (result == null) {
-            return -1;
+            return null;
         }
 
         moveNodeToHead(result);
@@ -29,7 +29,7 @@ public class LRUCache {
         return result.value;
     }
 
-    public void set(int key, int value) {
+    public void set(String key, String value) {
         CacheNode result = cache.get(key);
         if (result == null) {
             if (count == capacity) {
@@ -107,13 +107,13 @@ public class LRUCache {
     }
 
     public static class CacheNode {
-        public int key;
-        public int value;
+        public String key;
+        public String value;
 
         public CacheNode prev;
         public CacheNode next;
 
-        public CacheNode(int key, int value) {
+        public CacheNode(String key, String value) {
             this.key = key;
             this.value = value;
         }
