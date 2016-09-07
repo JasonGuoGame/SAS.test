@@ -1,4 +1,4 @@
-package hello.search;
+package hello.divideandconquer;
 
 /**
  * Created by scnyig on 7/13/2016.
