@@ -2,6 +2,7 @@ package hello.currency.concurrent.executor;
 
 /**
  * Created by scnyig on 11/1/2016.
+ * Executor 执行 Runnable 方法
  */
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
