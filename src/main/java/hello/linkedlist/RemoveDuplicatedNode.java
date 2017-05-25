@@ -5,21 +5,17 @@ package hello.linkedlist;
  */
 public class RemoveDuplicatedNode {
     public static ListNode deleteDuplicates(ListNode head) {
-        if (head == null) return null;
+        if(head==null||head.next==null)
+            return head;
+        ListNode dummy = head;
 
-        ListNode curr = head;
-        while (curr != null) {
-            ListNode inner = curr;
-            while (inner.next != null) {
-                if (inner.next.value == curr.value) {
-                    inner.next = inner.next.next;
-                } else {
-                    inner = inner.next;
-                }
+        while(dummy.next!=null){
+            if(dummy.next.value==dummy.value){
+                dummy.next=dummy.next.next;
+            }else {
+                dummy=dummy.next;
             }
-            curr = curr.next;
         }
-
         return head;
     }
 }
