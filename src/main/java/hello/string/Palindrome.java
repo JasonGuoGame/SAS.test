@@ -8,7 +8,7 @@ public class Palindrome {
         String ss = "A man, a plan, a canal: Panama";
         String s = "abcdzdc";
         String sss = s.substring(0, s.length());
-//        boolean result = isPalindrome(ss);
+        boolean isPal = isPalindrome(ss);
         String result = longestPalindrome(s);
         System.out.println(result);
     }

@@ -82,7 +82,6 @@ public class LRUCache {
             return;
         }
 
-
         // remove cached node from the list
         if (result.next != null) {
             result.next.prev = result.prev;

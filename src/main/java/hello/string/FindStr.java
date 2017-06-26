@@ -5,10 +5,11 @@ import java.util.Map;
 
 /**
  * Created by scnyig on 7/11/2016.
+ * abcd,bc
  */
 public class FindStr {
 
-    public int strStr(String source, String target) {
+    public static int strStr(String source, String target) {
         if (source == null || target == null) {
             return -1;
         }
@@ -29,6 +30,9 @@ public class FindStr {
         return -1;
     }
 
+    /*
+    * Given s="abcd", t="dcab", return true.
+     */
     public static boolean anagram(String s, String t) {
         // write your code here
         if (s==null || t==null || s.length()!=t.length()) return false;
@@ -48,8 +52,11 @@ public class FindStr {
     public static void main(String[] args) {
         String a = "abcabcbb";
         String b = "acbd";
+        String c = "aa ddddd cccccc ddddddddddddddddd";
 //        boolean flag = anagram2(a,b);
-        int maxL = lengthOfLongestSubstring(a);
+        int index = strStr(a,b);
+        int aa = lengthOfLastWord(c);
+        int maxL = lengthOfLongestSubstring("avbcve");
         System.out.println(maxL);
     }
 
@@ -95,6 +102,14 @@ public class FindStr {
 
     /*
     * return the longest substring without repeating characters
+    * 遍历字符串中的所有字符，将每个字符存入map，key为字符，value为位置。
+    * 对于每个字符，在将其存入map之前，做如下事情：
+    * 查看map中存不存在，如不存在，直接将其存入map，否则继续以下步骤
+    * 如果map的size大于当前最长子串的长度，更新当前最长子串的长度
+    * clear map中直到当前字符的所有字符
+    * 将当前字符存入map
+    * avbcve
+    *
      */
     public static int lengthOfLongestSubstring(String s) {
         if (s == null || s.isEmpty()) {

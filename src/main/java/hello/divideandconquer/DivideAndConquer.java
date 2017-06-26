@@ -1,5 +1,11 @@
 package hello.divideandconquer;
 
+import hello.tree.BinaryTree;
+import org.springframework.aop.target.LazyInitTargetSource;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by scnyig on 9/7/2016.
  */
@@ -7,7 +13,7 @@ public class DivideAndConquer {
     /**
      * x~n
      */
-    public int pow(int x, int n) {
+    public static int pow(int x, int n) {
         if(n==0) return 1;
         else if(n == 1) return x;
         else {
@@ -113,9 +119,30 @@ public class DivideAndConquer {
     public static void main(String[] args) {
         int unsortedArray[] = new int[]{6, 5, 3, 1, 8, 7, 2, 4};
         mergeSort(unsortedArray);
+        int pow = pow(3, 5);
         System.out.println("After sort: ");
         for (int item : unsortedArray) {
             System.out.print(item + " ");
         }
+    }
+
+    /*
+    * Given a binary tree, return the preorder traversal of its nodes' values.
+     */
+    public static List preOrderTraversal(BinaryTree.TreeNode root) {
+        List result = new ArrayList<>();
+        if(root != null) {
+            List left = preOrderTraversal(root.left);
+            List right = preOrderTraversal(root.right);
+
+            //merge
+            result.add(root);
+            result.addAll(left);
+            result.addAll(right);
+        }
+
+
+
+        return result;
     }
 }

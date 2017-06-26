@@ -6,11 +6,11 @@ import java.util.concurrent.locks.ReadWriteLock;
  * Created by scnyig on 4/28/2017.
  */
 public class User implements Runnable {
-    private String name;                 //ÓÃ»§Ãû
-    private MyCount myCount;         //ËùÒª²Ù×÷µÄÕË»§
-    private int iocash;                 //²Ù×÷µÄ½ğ¶î£¬µ±È»ÓĞÕı¸ºÖ®·ÖÁË
-    private ReadWriteLock myLock;                 //Ö´ĞĞ²Ù×÷ËùĞèµÄËø¶ÔÏó
-    private boolean ischeck;         //ÊÇ·ñ²éÑ¯
+    private String name;                 //
+    private MyCount myCount;         //
+    private int iocash;                 //æ“ä½œçš„é‡‘é¢
+    private ReadWriteLock myLock;                 //æ‰§è¡Œæ“ä½œéœ€è¦çš„é”å¯¹è±¡
+    private boolean ischeck;         //æ˜¯å¦æŸ¥è¯¢
 
     User(String name, MyCount myCount, int iocash, ReadWriteLock myLock, boolean ischeck) {
         this.name = name;
@@ -22,19 +22,19 @@ public class User implements Runnable {
 
     public void run() {
         if (ischeck) {
-            //»ñÈ¡¶ÁËø
+            //è·å–è¯»é”
             myLock.readLock().lock();
             System.out.println(name + " is checking " + myCount + " account, and count is " + myCount.getCash());
-            //ÊÍ·Å¶ÁËø
+            //é‡Šæ”¾è¯»é”
             myLock.readLock().unlock();
         } else {
-            //»ñÈ¡Ğ´Ëø
+            //è·å–å†™é”
             myLock.writeLock().lock();
-            //Ö´ĞĞÏÖ½ğÒµÎñ
+            //ç°é‡‘æ“ä½œ
             System.out.println("" + name + " operating " + myCount + " account, count is " + iocash +", currently is " + myCount.getCash());
             myCount.setCash(myCount.getCash() + iocash);
             System.out.println("" + name + " save " + myCount + " successful, the count is " + iocash +", currently is " + myCount.getCash());
-            //ÊÍ·ÅĞ´Ëø
+            //é‡Šæ”¾å†™é”
             myLock.writeLock().unlock();
         }
     }

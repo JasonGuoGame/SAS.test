@@ -10,25 +10,25 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class Test {
     public static void main(String[] args) {
-        //´´½¨²¢·¢·ÃÎÊµÄÕË»§
+        //åˆ›å»ºä¸€ä¸ªå¸å·
         MyCount myCount = new MyCount("95599200901215522", 10000);
-        //´´½¨Ò»¸öËø¶ÔÏó
+        //åˆ›å»ºä¸€ä¸ªé”ï¼Œæ‰€æœ‰çš„ç”¨æˆ·æ‹¿ç€åŒä¸€æŠŠé”ï¼ŒåŒä¸€ä¸ªè´¦æˆ·
         ReadWriteLock lock = new ReentrantReadWriteLock(false);
-        //´´½¨Ò»¸öÏß³Ì³Ø
+        //åˆ›å»ºä¸€ä¸ªçº¿ç¨‹æ± 
         ExecutorService pool = Executors.newFixedThreadPool(2);
-        //´´½¨Ò»Ğ©²¢·¢·ÃÎÊÓÃ»§£¬Ò»¸öĞÅÓÃ¿¨£¬´æµÄ´æ£¬È¡µÄÈ¡£¬ºÃÈÈÄÖ°¡
+        //åˆ›å»ºä¸€äº›ç”¨æˆ·ï¼Œå­˜é’±ï¼Œå–é’±
         User u1 = new User("Jason", myCount, -4000, lock, false);
         User u2 = new User("Mary", myCount, 6000, lock, false);
         User u3 = new User("Rebecca", myCount, -8000, lock, false);
         User u4 = new User("Jason", myCount, 800, lock, false);
         User u5 = new User("Tom", myCount, 0, lock, true);
-        //ÔÚÏß³Ì³ØÖĞÖ´ĞĞ¸÷¸öÓÃ»§µÄ²Ù×÷
+        //çº¿ç¨‹æ± ä¸­æ“ä½œ
         pool.execute(u1);
         pool.execute(u2);
         pool.execute(u3);
         pool.execute(u4);
         pool.execute(u5);
-        //¹Ø±ÕÏß³Ì³Ø
+        //å…³é—­çº¿ç¨‹æ± 
         pool.shutdown();
     }
 }

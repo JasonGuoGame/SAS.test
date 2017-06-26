@@ -10,7 +10,7 @@ import java.util.concurrent.locks.*;
 class Info{ // 定义信息类
     private String name = "name";//定义name属性，为了与下面set的name属性区别开
     private String content = "content" ;// 定义content属性，为了与下面set的content属性区别开
-    private boolean flag = true ;   // 设置标志位,初始时先生产
+    private boolean flag = true ;   // 设置标志位,初始时先生产，已经取走
     private Lock lock = new ReentrantLock();
     private Condition condition = lock.newCondition(); //产生一个Condition对象
     public  void set(String name,String content){

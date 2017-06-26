@@ -12,7 +12,7 @@ public class Safelock {
     static class Friend {
         private final String name;
         private final Lock lock = new ReentrantLock();
-
+        private int count = 0;
         public Friend(String name) {
             this.name = name;
         }
@@ -44,7 +44,7 @@ public class Safelock {
             if (impendingBow(bower)) {
                 try {
                     System.out.format("%s: %s has"
-                                    + " bowed to me!%n",
+                                    + " bowed to me!" + ++count + "  " + Thread.currentThread().getName() + "%n",
                             this.name, bower.getName());
                     bower.bowBack(this);
                 } finally {
@@ -78,7 +78,7 @@ public class Safelock {
 
         public void run() {
             Random random = new Random();
-            for (; ; ) {
+            for (; bowee.count < 100; ) {
                 try {
                     Thread.sleep(random.nextInt(10));
                 } catch (InterruptedException e) {
@@ -88,11 +88,9 @@ public class Safelock {
         }
     }
 
-    public static void main0(String[] args) {
-        final Friend alphonse =
-                new Friend("Alphonse");
-        final Friend gaston =
-                new Friend("Gaston");
+    public static void main(String[] args) {
+        final Friend alphonse = new Friend("Alphonse");
+        final Friend gaston = new Friend("Gaston");
         new Thread(new BowLoop(alphonse, gaston)).start();
         new Thread(new BowLoop(gaston, alphonse)).start();
     }

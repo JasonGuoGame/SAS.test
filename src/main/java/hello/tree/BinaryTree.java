@@ -9,10 +9,10 @@ import java.util.ArrayDeque;
  * 当作为栈使用时，性能比Stack好；当作为队列使用时，性能比LinkedList好。
  */
 public class BinaryTree {
-    static class TreeNode{
+    public static class TreeNode{
         int value;
-        TreeNode left;
-        TreeNode right;
+        public TreeNode left;
+        public TreeNode right;
 
         public TreeNode(int value){
             this.value=value;
@@ -42,8 +42,10 @@ public class BinaryTree {
         inOrder(tree.root);
         System.out.println("================================");
         postOrder(tree.root);
-//        tree.depthOrderTraversal();
-//        tree.levelOrderTraversal();
+        System.out.println("================================");
+        tree.depthOrderTraversal();
+        System.out.println("================================");
+        tree.levelOrderTraversal();
     }
 
     /**
@@ -77,7 +79,7 @@ public class BinaryTree {
         }
         ArrayDeque<TreeNode> stack=new ArrayDeque<TreeNode>();
         stack.push(root);
-        while(stack.isEmpty()==false){
+        while(!stack.isEmpty()){
             TreeNode node=stack.pop();
             System.out.print(node.value+"    ");
             if(node.right!=null){
@@ -150,12 +152,11 @@ public class BinaryTree {
         }
 
         if(root.left != null) {
-
-            inOrder(root.left);
+            postOrder(root.left);
         }
 
         if(root.right != null) {
-            inOrder(root.right);
+            postOrder(root.right);
         }
 
         System.out.println(root.value);

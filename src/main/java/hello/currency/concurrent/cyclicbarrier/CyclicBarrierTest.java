@@ -52,5 +52,6 @@ class SubTask extends Thread {
         } catch (BrokenBarrierException e) {
             e.printStackTrace();
         }
+        System.out.println("[并发任务" + name + "]  同时执行");
     }
 }

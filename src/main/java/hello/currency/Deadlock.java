@@ -13,7 +13,9 @@ public class Deadlock {
     public synchronized void checkOther(Deadlock other) {
         print("entering checkOther()");
         try { Thread.sleep(2000); }
-        catch ( InterruptedException x ) { }
+        catch ( InterruptedException x ) {
+            System.out.println();
+        }
         print("in checkOther() - about to " + "invoke 'other.action()'");
 
         //调用other对象的action方法，由于该方法是同步方法，因此会试图获取other对象的对象锁
@@ -74,7 +76,7 @@ public class Deadlock {
         catch ( InterruptedException x ) { }
 
         threadPrint("about to interrupt() threadB");
-        threadB.interrupt();
+//        threadB.interrupt();
 
         try { Thread.sleep(1000); }
         catch ( InterruptedException x ) { }

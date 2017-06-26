@@ -50,4 +50,33 @@ public class MergeLinkedList {
 
         return  head;
     }
+
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0);
+        ListNode merged = dummy;
+        while(l1 != null || l2!= null){
+            if(l1!= null && l2!= null && l1.value <= l2.value){
+                ListNode cur = new ListNode(l1.value);
+                merged.next = cur;
+                l1 = l1.next;
+            }
+            else if(l1!= null && l2!= null && l1.value > l2.value){
+                ListNode cur = new ListNode(l2.value);
+                merged.next = cur;
+                l2 = l2.next;
+            }
+            else if(l1 == null && l2 != null){
+                ListNode cur = new ListNode(l2.value);
+                merged.next = cur;
+                l2 = l2.next;
+            }
+            else if(l2 == null && l1 != null){
+                ListNode cur = new ListNode(l1.value);
+                merged.next = cur;
+                l1 = l1.next;
+            }
+            merged = merged.next;
+        }
+        return dummy.next;
+    }
 }

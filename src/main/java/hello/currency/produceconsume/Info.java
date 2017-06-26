@@ -8,7 +8,7 @@ public class Info {
     private String content = "content" ;// 定义content属性，为了与下面set的content属性区别开
     private boolean flag = true ;   // 设置标志位,初始时先生产
     public synchronized void set(String name,String content){
-        while(!flag){
+        while (!flag){
             try{
                 super.wait() ;
             }catch(InterruptedException e){
@@ -21,12 +21,13 @@ public class Info {
         }catch(InterruptedException e){
             e.printStackTrace() ;
         }
+        System.out.println("produce info" + name + "->" + content);
         this.setContent(content) ;  // 设置内容
-        flag  = false ; // 改变标志位，表示可以取走
+        flag  = false ; // 改变标志位，表示生产完了可以取走
         super.notify();
     }
     public synchronized void get(){
-        while(flag){
+        while (flag){
             try{
                 super.wait() ;
             }catch(InterruptedException e){

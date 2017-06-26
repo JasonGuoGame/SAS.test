@@ -2,6 +2,7 @@ package hello.linkedlist;
 
 /**
  * Created by scnyig on 7/19/2016.
+ * https://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes/73011
  */
 public class ReverseList {
     public static ListNode reverseList(ListNode node) {

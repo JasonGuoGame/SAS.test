@@ -31,7 +31,8 @@ public class BufferInterruptibly {
         lock.lockInterruptibly();// 注意这里，可以响应中断
         try {
             System.out.println("从这个buff读数据");
-        } finally {
+        }
+        finally {
             lock.unlock();
         }
     }

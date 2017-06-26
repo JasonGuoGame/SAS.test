@@ -2,6 +2,20 @@ package hello.immutable;
 
 /**
  * Created by scnyig on 5/16/2016.
+ * SynchronizedRGB must be used carefully to avoid being seen in an inconsistent state. Suppose, for example, a thread executes the following code:
+
+ SynchronizedRGB color =
+ new SynchronizedRGB(0, 0, 0, "Pitch Black");
+ ...
+ int myColorInt = color.getRGB();      //Statement 1
+ String myColorName = color.getName(); //Statement 2
+ If another thread invokes color.set after Statement 1 but before Statement 2, the value of myColorInt won't match the value of myColorName. To avoid this outcome, the two statements must be bound together:
+
+ synchronized (color) {
+ int myColorInt = color.getRGB();
+ String myColorName = color.getName();
+ }
+ This kind of inconsistency is only possible for mutable objects — it will not be an issue for the immutable version of SynchronizedRGB.
  */
 public class SynchronizedRGB {
     // Values must be between 0 and 255.

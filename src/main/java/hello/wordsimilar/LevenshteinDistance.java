@@ -6,9 +6,11 @@ import java.util.List;
 
 /**
  * Created by scnyig on 6/2/2016.
+ * http://blog.csdn.net/lhkaikai/article/details/25186255
+ * levab(i, j) = max(i, j)  如果min(i, j) = 0; =  min(levab(i - 1, j) + 1, levab(i, j-1) + 1, levab(i - 1, j - 1) + 1) (ai != bj)
  */
 public class LevenshteinDistance {
-    public static void main0(String[] args) {
+    public static void main(String[] args) {
         String a = "aaadddeee";
         String b = "efadfe";
         int length = computeLevenshteinDistance(a, b);

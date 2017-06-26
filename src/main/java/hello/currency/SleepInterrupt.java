@@ -35,7 +35,7 @@ public class SleepInterrupt extends Object implements Runnable{
         }
         System.out.println("in main() - interrupting other thread");
         //中断线程t
-//        t.interrupt();
+        t.interrupt();
         System.out.println("in main() - leaving");
     }
 }
