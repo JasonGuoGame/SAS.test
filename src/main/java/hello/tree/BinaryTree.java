@@ -123,6 +123,7 @@ public class BinaryTree {
     public static void preOrder(TreeNode root) {
         if(root == null) {
             System.out.println("empty");
+            return;
         }
         System.out.println(root.value);
         if (root.left != null)
@@ -134,6 +135,7 @@ public class BinaryTree {
     public static void inOrder(TreeNode root) {
         if(root ==null) {
             System.out.println("empty");
+            return;
         }
 
         if(root.left != null) {
@@ -149,6 +151,7 @@ public class BinaryTree {
     public static void postOrder(TreeNode root) {
         if(root ==null) {
             System.out.println("empty");
+            return;
         }
 
         if(root.left != null) {
