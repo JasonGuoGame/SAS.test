@@ -19,4 +19,19 @@ public class FinidNumber {
         }
         return x[l];
     }
+
+
+    /**
+     * 一个数组里找出出现一次的数字，其他数字都出现偶数次
+     * 使用异或操作符
+     * 偶数此的异或会直接抵消掉，最后的结果就是出现一次的值
+     */
+    public int findOnceNumber(int[] data) {
+        int result = 0;
+        for (int i = 0; i < data.length; i++) {
+            result^= data[i];
+        }
+
+        return result;
+    }
 }
