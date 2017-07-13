@@ -4,12 +4,16 @@ package hello.linkedlist;
  * Created by scnyig on 7/19/2016.
  */
 public class MergeLinkedList {
+    /**
+     * 生成一个自己的列表，献给这个head and current 赋值,然后在这个列表上移动current的指针，添加head1 or head2.
+     * @param head1
+     * @param head2
+     * @return
+     */
     public static ListNode mergeLinkedList(ListNode head1, ListNode head2) {
         ListNode head;
         ListNode current;
-        if(head1 == null && head2 == null) {
-            return null;
-        }
+
         if (head1 == null) {
             return head2;
         }
@@ -51,6 +55,12 @@ public class MergeLinkedList {
         return  head;
     }
 
+    /**
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
         ListNode merged = dummy;
