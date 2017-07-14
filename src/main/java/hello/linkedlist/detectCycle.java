@@ -4,7 +4,7 @@ package hello.linkedlist;
  * Created by scnyig on 7/4/2017.
  * https://www.zybuluo.com/867976167/note/52199
  */
-public class detectCycle {
+public class DetectCycle {
     public ListNode detectCycle(ListNode node) {
         ListNode slow = node;
         ListNode fast = node;
