@@ -39,6 +39,31 @@ public class RemoveElement {
         return j + 1;
     }
 
+    public void merge(int[] a, int m, int[]b, int n) {
+        int i = m + n -1;
+        int j = m -1;
+        int k = n - 1;
+
+        while (i >= 0) {
+            if(j >= 0 && k >= 0) {
+                if(a[j] > b[k]) {
+                    a[i] = a[j];
+                    j--;
+                }else {
+                    a[i] = b[k];
+                    k--;
+                }
+            } else if(j >= 0) {
+                a[i] = a[j];
+                j--;
+            } else {
+                a[i] = b[k];
+                k--;
+            }
+
+            i--;
+        }
+    }
     public static void main(String[] args) {
         int[] a = {1,2,2,3,2,4};
         int in = removeEle(a,2);
