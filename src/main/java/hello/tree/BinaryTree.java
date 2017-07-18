@@ -103,7 +103,7 @@ public class BinaryTree {
         }
         ArrayDeque<TreeNode> queue=new ArrayDeque<TreeNode>();
         queue.add(root);
-        while(queue.isEmpty()==false){
+        while(!queue.isEmpty()){
             TreeNode node=queue.remove();
             System.out.print(node.value+"    ");
             if(node.left!=null){
@@ -163,5 +163,39 @@ public class BinaryTree {
         }
 
         System.out.println(root.value);
+    }
+
+    /*
+    * Input:
+        Tree 1                     Tree 2
+              1                         2
+             / \                       / \
+            3   2                     1   3
+           /                           \   \
+          5                             4   7
+    Output:
+    Merged tree:
+             3
+            / \
+           4   5
+          / \   \
+         5   4   7
+    *
+    *
+     */
+    public TreeNode mergetNodes(TreeNode l1, TreeNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+
+        if(l2 == null) {
+            return l1;
+        }
+
+        TreeNode node = new TreeNode(l1.value + l2.value);
+        node.left = mergetNodes(l1.left, l2.left);
+        node.right = mergetNodes(l1.right, l2.right);
+
+        return node;
     }
 }
