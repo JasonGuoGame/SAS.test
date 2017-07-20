@@ -6,7 +6,7 @@ package hello.currency.produceconsume;
 public class Info {
     private String name = "name";//定义name属性，为了与下面set的name属性区别开
     private String content = "content" ;// 定义content属性，为了与下面set的content属性区别开
-    private boolean flag = true ;   // 设置标志位,初始时先生产
+    private boolean flag = true ;   // 设置标志位,初始时先生产,no produce or consume
     public synchronized void set(String name,String content){
         while (!flag){
             try{

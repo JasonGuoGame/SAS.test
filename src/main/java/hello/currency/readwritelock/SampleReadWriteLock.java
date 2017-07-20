@@ -21,6 +21,9 @@ public class SampleReadWriteLock {
         notifyAll();
     }
 
+    /*
+    * writeRequests 有请求写操作，就不能去读。否则会出现饥饿现象，一直读不能写。 writeRequest++后读锁就lock住不能继续读了
+     */
     public synchronized void lockWrite()
             throws InterruptedException{
         writeRequests++;
@@ -32,6 +35,9 @@ public class SampleReadWriteLock {
         writers++;
     }
 
+    /*
+    * 用notifyall 不用 notify 是因为怕只唤醒了读锁，但是有writeRequest大于0，那么相当于没什么用。信号丢失
+     */
     public synchronized void unlockWrite()
             throws InterruptedException{
         writers--;
