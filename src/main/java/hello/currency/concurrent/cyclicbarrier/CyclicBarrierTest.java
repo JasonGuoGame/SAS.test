@@ -2,6 +2,8 @@ package hello.currency.concurrent.cyclicbarrier;
 
 /**
  * Created by scnyig on 11/2/2016.
+ * http://wiki.jikexueyuan.com/project/java-concurrency/cyclicbarrier.html
+ * cyclicbarrier 类似countdownlatch，希望创建一组任务，这组任务完成后再执行另外一个任务，可以多次出发另外的那个任务
  */
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
@@ -16,6 +18,18 @@ public class CyclicBarrierTest {
         new SubTask("C", cb).start();
         new SubTask("D", cb).start();
         new SubTask("E", cb).start();
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        new SubTask("e", cb).start();
+        new SubTask("f", cb).start();
+        new SubTask("g", cb).start();
+        new SubTask("h", cb).start();
+        new SubTask("i", cb).start();
     }
 }
 
