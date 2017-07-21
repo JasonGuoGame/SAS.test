@@ -37,6 +37,7 @@ public class BinaryTreePaths {
         }
         helper(root.left, target);
         helper(root.right, target);
+        //从叶子节点返回了，当然要把之前加上的值减了，重新加入新的节点的值
         sum -= path.get(path.size() - 1);
         path.remove(path.size() - 1);
 
