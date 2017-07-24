@@ -42,4 +42,40 @@ public class FinidNumber {
     public boolean isPowerOfTwo(int n) {
         return  n > 0 && (n & (n -1)) == 0;
     }
+
+    public static boolean isUgly(int value) {
+        while (value %2 == 0) {
+            value /=2;
+        }
+        while (value %3 == 0) {
+            value /= 3;
+        }
+        while (value %5 == 0) {
+            value /=5;
+        }
+
+        return value == 1;
+    }
+
+    public static int getUglyNumber(int index) {
+        if(index <= 0) {
+            return -1;
+        }
+
+        int uglyFound = 0;
+        int num = 0;
+        while (uglyFound < index) {
+            num++;
+            if (isUgly(num)) {
+                uglyFound++;
+            }
+        }
+
+        return num;
+    }
+
+    public static void main(String[] args) {
+        int isu = getUglyNumber(10);
+        System.out.println(isu);
+    }
 }

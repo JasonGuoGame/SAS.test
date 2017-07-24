@@ -2,6 +2,7 @@ package hello.string;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by scnyig on 7/11/2016.
@@ -145,5 +146,33 @@ public class FindStr {
         for (int i = from; i <=to; i++) {
             idxMap.remove(s.charAt(i));
         }
+    }
+
+    public Character getFirstOnceChar(String str) {
+        if(str == null || str.isEmpty()) {
+            return '\0';
+        }
+
+        Map<Character, Integer> map = new HashMap<Character,Integer>();
+        for (int i = 0; i < str.length();i++) {
+            if(map.containsKey(str.charAt(i))) {
+                map.put(str.charAt(i), -2);
+            } else {
+                map.put(str.charAt(i), i);
+            }
+        }
+
+        Set<Map.Entry<Character,Integer>> entrySet = map.entrySet();
+
+        Character result='\0';
+        int index = Integer.MAX_VALUE;
+
+        for (Map.Entry<Character,Integer> entry : entrySet) {
+            if(entry.getValue() > 0 && entry.getValue() < index) {
+                result = entry.getKey();
+            }
+        }
+
+        return result;
     }
 }
