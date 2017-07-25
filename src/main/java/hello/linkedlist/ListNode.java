@@ -5,7 +5,7 @@ package hello.linkedlist;
  */
 public class ListNode {
     int value;
-    ListNode next;
+    public ListNode next;
     public ListNode(int x) {
         this.value = x;
         next = null;

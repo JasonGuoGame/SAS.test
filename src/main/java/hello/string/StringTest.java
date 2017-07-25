@@ -49,4 +49,51 @@ public class StringTest {
         }
         return nex;
     }
+
+    /**
+     * Longest Common Prefix
+     * http://wiki.jikexueyuan.com/project/leetcode-book/13.html
+     */
+    public String getLongestPrefix(String[] data) {
+        if(data == null) {
+            return "";
+        }
+        int length = data.length;
+
+        if (length == 1) {
+            return data[0];
+        }
+
+        int minIndex = 0;
+        String shortestStrin = data[0];
+        for (int i = 0; i < length; i++) {
+            if (data[i].length() < shortestStrin.length()) {
+                minIndex = i;
+                shortestStrin = data[i];
+            }
+        }
+
+        String result = "";
+        int j = shortestStrin.length();
+        for (;j >= 0; j--) {
+            result = data[minIndex].substring(0, j);
+
+            int i = 0;
+            for (; i < data.length; i++) {
+                if(i == minIndex) {
+                    break;
+                }
+                String substr = data[i].substring(0, j);
+                if(substr != result) {
+                    break;
+                }
+            }
+
+            if (i == data.length) {
+                return result;
+            }
+        }
+
+        return result;
+    }
 }
