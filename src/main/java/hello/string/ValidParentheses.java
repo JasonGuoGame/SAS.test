@@ -37,7 +37,7 @@ public class ValidParentheses {
      * https://leetcode.com/problems/longest-valid-parentheses/#/solution
      * Given a string containing just the characters '(' and ')', find the length of the longest valid (well-formed) parentheses substring.
      */
-    public boolean isValid(String s) {
+    public static boolean isValid(String s) {
         Stack<Character> stack = new Stack<Character>();
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(') {
@@ -50,7 +50,7 @@ public class ValidParentheses {
         }
         return stack.empty();
     }
-    public int longestValidParentheses(String s) {
+    public static int longestValidParentheses(String s) {
         int maxlen = 0;
         for (int i = 0; i < s.length(); i++) {
             for (int j = i + 2; j <= s.length(); j+=2) {
@@ -60,6 +60,26 @@ public class ValidParentheses {
             }
         }
         return maxlen;
+    }
+
+    /**
+     * use DP to resolve the prior the longest valid parenthesis
+     */
+    public static int dpLongestParenthesis(String string) {
+        int[] dp = new int[string.length()];
+        int max = 0;
+        for (int i = 1; i < string.length(); i++) {
+            if(string.charAt(i) == ')') {
+                if (string.charAt(i -1) == '(') {
+                    dp[i] = dp[ i -1] + 2;
+                } else if(i - dp[i-1] > 0 && string.charAt(i - dp[i-1]) == '(') {
+                    dp[i] = dp[i-1] + (i - dp[i-1] >= 2 ? dp[i - dp[i-1] + 2] : 0) + 2;
+                }
+                max = Math.max(dp[i],max);
+            }
+        }
+
+        return max;
     }
 
     /**
@@ -98,5 +118,10 @@ public class ValidParentheses {
     public static void main(String[] args) {
         ArrayList<String> strings = generateParenthesis(1);
         System.out.println(strings);
+        String test = "()()())";
+        int longestParenthesis = dpLongestParenthesis(test);
+        System.out.println(longestParenthesis);
+        int parentheses = longestValidParentheses(test);
+        System.out.println(parentheses);
     }
 }

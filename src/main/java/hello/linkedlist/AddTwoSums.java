@@ -21,7 +21,7 @@ public class AddTwoSums {
             int y = p2 != null ? p2.value : 0;
             sum = carry + x + y;
             current.next = new ListNode(sum%10);
-            carry /= 10;
+            carry = sum/10;
             current = current.next;
             p1 = p1.next != null ? p1.next : null;
             p2 = p2.next != null ? p2.next : null;
