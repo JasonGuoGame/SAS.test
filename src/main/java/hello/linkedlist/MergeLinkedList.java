@@ -5,7 +5,7 @@ package hello.linkedlist;
  */
 public class MergeLinkedList {
     /**
-     * 生成一个自己的列表，献给这个head and current 赋值,然后在这个列表上移动current的指针，添加head1 or head2.
+     * 生成一个自己的列表，先给这个head and current 赋值,然后在这个列表上移动current的指针，添加head1 or head2.
      * @param head1
      * @param head2
      * @return
