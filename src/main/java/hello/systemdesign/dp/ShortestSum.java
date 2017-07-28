@@ -23,7 +23,7 @@ public class ShortestSum {
             sum[0][i] = sum[0][i-1] + grid[0][i];
         }
 
-        for (int i = 1; j < M;i++) {
+        for (int i = 1; i < M;i++) {
             for (int j = 1; j < N; j++) {
                 sum[i][j] = Math.min(sum[i-1][j],sum[i][j-1]) + grid[i][j];
             }
