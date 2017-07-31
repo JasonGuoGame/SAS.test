@@ -51,7 +51,7 @@ public class FindStr {
     }
 
     public static void main(String[] args) {
-        String a = "abcabcbb";
+        String a = "abcabcbbdabc";
         String b = "acbd";
         String c = "aa ddddd cccccc ddddddddddddddddd";
 //        boolean flag = anagram2(a,b);
@@ -59,6 +59,8 @@ public class FindStr {
         int aa = lengthOfLastWord(c);
         int maxL = lengthOfLongestSubstring("avbcve");
         System.out.println(maxL);
+        int firstOnceChar = getFirstOnceChar(a);
+        System.out.println(firstOnceChar);
     }
 
     public static boolean anagram2(String s, String t) {
@@ -148,9 +150,9 @@ public class FindStr {
         }
     }
 
-    public Character getFirstOnceChar(String str) {
+    public static int getFirstOnceChar(String str) {
         if(str == null || str.isEmpty()) {
-            return '\0';
+            return -1;
         }
 
         Map<Character, Integer> map = new HashMap<Character,Integer>();
@@ -166,13 +168,18 @@ public class FindStr {
 
         Character result='\0';
         int index = Integer.MAX_VALUE;
-
+        boolean found = false;
         for (Map.Entry<Character,Integer> entry : entrySet) {
-            if(entry.getValue() > 0 && entry.getValue() < index) {
-                result = entry.getKey();
+            if(entry.getValue() >= 0) {
+                found = true;
+                if(entry.getValue() < index) {
+                    index = entry.getValue();
+                    result = entry.getKey();
+                }
+
             }
         }
 
-        return result;
+        return found ? index : -1;
     }
 }
