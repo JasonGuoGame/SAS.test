@@ -1,6 +1,9 @@
 package hello.tree;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by scnyig on 6/3/2016.
@@ -13,14 +16,14 @@ public class BinaryTree {
         int value;
         public TreeNode left;
         public TreeNode right;
-
         public TreeNode(int value){
             this.value=value;
         }
     }
 
     TreeNode root;
-
+    private static List<List<Integer>> paths = new ArrayList<List<Integer>>();
+    private static List<Integer> path = new ArrayList<Integer>();
     public BinaryTree(int[] array){
         root=makeBinaryTreeByArray(array,1);
     }
@@ -46,6 +49,10 @@ public class BinaryTree {
         tree.depthOrderTraversal();
         System.out.println("================================");
         tree.levelOrderTraversal();
+
+
+        dfs(tree.root);
+        System.out.println(paths);
     }
 
     /**
@@ -101,19 +108,44 @@ public class BinaryTree {
             System.out.println("empty tree");
             return;
         }
+        TreeNode lastNode = root;
+        TreeNode nLstNode = root.right != null ? root.right : root.left;
         ArrayDeque<TreeNode> queue=new ArrayDeque<TreeNode>();
         queue.add(root);
         while(!queue.isEmpty()){
             TreeNode node=queue.remove();
-            System.out.print(node.value+"    ");
+            System.out.print(node.value + "    ");
             if(node.left!=null){
                 queue.add(node.left);
+                nLstNode = node.left;
             }
             if(node.right!=null){
                 queue.add(node.right);
+                nLstNode = node.right;
+            }
+            if(node.equals(lastNode)) {
+                System.out.print("\n");
+                lastNode = nLstNode;
             }
         }
         System.out.print("\n");
+    }
+
+    public void testqueue(TreeNode root) {
+        LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(root);
+
+        while (!queue.isEmpty()){
+            TreeNode node = queue.remove();
+            System.out.println(node.value);
+            if (node.left!= null) {
+                queue.add(node.left);
+            }
+
+            if(node.right!= null) {
+                queue.add(node.right);
+            }
+        }
     }
 
     /*
@@ -163,6 +195,30 @@ public class BinaryTree {
         }
 
         System.out.println(root.value);
+    }
+
+    public static void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        path.add(root.value);
+
+        if (root.left == null && root.right == null) {
+            // compare sum & target
+            // add 的是path的reference
+            List<Integer> l = new ArrayList<Integer>();
+            for (int i = 0; i < path.size(); i++) {
+                l.add(path.get(i));
+            }
+            paths.add(l);
+        }
+        dfs(root.left);
+        dfs(root.right);
+        //从叶子节点返回了，当然要把之前加上的值减了，重新加入新的节点的值
+
+        path.remove(path.size() - 1);
+
     }
 
     /*
