@@ -1,9 +1,12 @@
+package hello.string;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class LongestSubstring {
     /**
      * 暴力法：查找最长无重复字符子串的长度
+     * 列出这个方法是为理解sliding window 算法
      */
     public static int lengthOfLongestSubstring(String s) {
         int n = s.length();
