@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56a0978e-da2c-4d49-bc14-9c0f87e63d11" name="更改" comment="" />
+    <list default="true" id="56a0978e-da2c-4d49-bc14-9c0f87e63d11" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/hello/string/BFAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/hello/string/BFAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/hello/string/LongestCommonSubstring.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/hello/string/LongestCommonSubstring.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/hello/string/LongestSubstring.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/hello/string/LongestSubstring.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/hello/string/Palindrome.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/hello/string/Palindrome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/hello/string/ReverseWords.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/hello/string/ReverseWords.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/string/BFAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/string/BFAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/string/LongestCommonSubstring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/string/LongestCommonSubstring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/string/LongestSubstring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/string/LongestSubstring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/string/Palindrome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/string/Palindrome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/string/ReverseWords.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/string/ReverseWords.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/wordsimilar/LevenshteinDistance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/wordsimilar/LevenshteinDistance.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +49,9 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/github/SAS.test/build.gradle",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }

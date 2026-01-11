@@ -1,6 +1,8 @@
 package hello.string;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class LongestSubstring {
@@ -42,7 +44,35 @@ public class LongestSubstring {
 
     public static void main(String[] args) {
         String input = "abcabcbb";
-        int result = lengthOfLongestSubstring(input);
+        int result = lengthOfLongestSubstringSliding(input);
         System.out.println("最长无重复子串的长度为: " + result); // 输出 3 ("abc")
+    }
+
+    /**
+     * Sliding Window 算法
+     * 
+     * @param s
+     * @return
+     */
+    public static int lengthOfLongestSubstringSliding(String s) {
+        Map<Character, Integer> window = new HashMap<>();
+        int left = 0;
+        int right = 0;
+        int end = s.length();
+        int res = 0;
+        while (right < end) {
+            Character c = s.charAt(right);
+            right++;
+            window.put(c, window.getOrDefault(c, 0) + 1);
+
+            while (window.get(c) > 1) {
+                Character d = s.charAt(left);
+                left++;
+                window.put(d, window.get(d) - 1);
+            }
+
+            res = Math.max(res, right - left);
+        }
+        return res;
     }
 }
